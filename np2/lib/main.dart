@@ -11,6 +11,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
@@ -31,21 +32,33 @@ class MinhaHomePage extends StatelessWidget {
           "Tela inicial",
           style: TextStyle(color: Colors.white, fontSize: 20),
         ),
+        actions: [
+          IconButton(
+            onPressed: () {
+              print("Clicou na notificação");
+            },
+            icon: Icon(Icons.notifications),
+          ),
+          SizedBox(width: 20),
+        ],
         backgroundColor: Colors.lightBlue,
         centerTitle: true,
       ),
       body: Center(child: Text("Aqui vai meu conteudo")),
-      floatingActionButton: 
-      Row(
+      floatingActionButton: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           FloatingActionButton(
-            onPressed: () {},
+            onPressed: () {
+              print("Clicou no botão de add");
+            },
             child: Icon(Icons.add),
           ),
           SizedBox(width: 20),
           FloatingActionButton(
-            onPressed: () {},
+            onPressed: () {
+              print("Clicou no botão de remove");
+            },
             child: Icon(Icons.remove),
           ),
         ],
@@ -69,7 +82,10 @@ class MinhaHomePage extends StatelessWidget {
       bottomNavigationBar: BottomNavigationBar(
         backgroundColor: Colors.lightBlue,
         items: [
-          BottomNavigationBarItem(icon: Icon(Icons.home, color: Colors.white), label: "Inicio"),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home, color: Colors.white),
+            label: "Inicio",
+          ),
           BottomNavigationBarItem(
             icon: Icon(Icons.settings, color: Colors.white),
             label: "Configurações",
